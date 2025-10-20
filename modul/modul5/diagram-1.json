@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "author": "Ariel Naviandana Putra",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -46.5, "left": -90.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "blue", [ "v0" ] ],
+    [ "esp:3V3", "ultrasonic1:VCC", "red", [ "h0" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "green", [ "v48", "h114.4" ] ]
+  ],
+  "dependencies": {}
+}

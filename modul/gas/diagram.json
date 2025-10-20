@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Ariel Naviandana Putra",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -86.4, "left": 72.04, "attrs": {} },
+    {
+      "type": "wokwi-mq2",
+      "id": "mq2",
+      "top": -40,
+      "left": 200,
+      "attrs": { "label": "MQ-2 Gas Sensor", "smoke": "0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": -61.2,
+      "left": 426.2,
+      "attrs": { "color": "red", "label": "LED Warning" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzz",
+      "top": 12,
+      "left": 414.6,
+      "attrs": { "label": "Buzzer" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "mq2:VCC", "esp:3V3", "red", [ "v0", "h-60" ] ],
+    [ "mq2:GND", "esp:GND.1", "black", [ "v0", "h-40" ] ],
+    [ "mq2:AOUT", "esp:34", "green", [ "v0", "h-60" ] ],
+    [ "led:A", "esp:23", "red", [ "h-134.4", "v-28.8" ] ],
+    [ "led:C", "esp:GND.2", "black", [ "v20", "h-40" ] ],
+    [ "buzz:1", "esp:22", "blue", [ "h-134.4", "v-134.4" ] ],
+    [ "buzz:2", "esp:GND.3", "black", [ "v20", "h-40" ] ]
+  ],
+  "dependencies": {}
+}
